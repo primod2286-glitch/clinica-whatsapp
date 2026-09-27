@@ -1,4 +1,4 @@
-<style>
+
 body {
     font-family: Arial;
     background-color: #f2f2f2;
@@ -26,12 +26,60 @@ button {
     border-radius: 25px;
     font-size: 18px;
 }
+  .container {
+    max-width: 500px;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #ccc;
+  }
+  .info-clinica {
+    background-color: #f0f9f7;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: #333;
+  }
+  select {
+    width: 90%;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    background-color: white;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    background-color: #128C7E;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+  }
 </style>
-<h1>Clinica Saúde & Vida</h1>
+<div class="container">
+  <div class="logo">✚</div>
+<h1>Clinica Saúde & Vida</h1> 
+<br><br>
 <p>Olá! 👋 Como podemos ajudar você?</p>
+  <div class="info-clinica">
+    <p>🕐 Segunda a sexta: 08h às 18h</p>
+    <p>📍 Pindamonhangaba - SP</p>
+    <p>📞 Agendamentos pelo WhatsApp</p>
+  </div>
 
 <label>Nome:</label>
 <input type="text" id="nome">
+<br><br> 
+<label>Telefone:</label>
+<input type="tel" id="telefone" placeholder="(12) 99999-9999">
 <br><br>
 <label>Especialidade:</label>
 <select id="especialidade">
@@ -48,18 +96,30 @@ button {
 
 <button onclick="abrirWhatsApp()">
   Falar no Whatsapp</button>
+</div>
 
 <script> 
   function abrirWhatsApp() {
   let nome = document.getElementById("nome").value;
+  let telefone = document.getElementById("telefone").value;
+    if (nome == "") {
+    alert("Por favor, digite seu nome.");
+    return;
+    }
   let assunto = document.getElementById("assunto").value;
+    if (assunto == "") {
+    alert("Por favor, diga como podemos ajudar.");
+    return;
+    }
   let especialidade = document.getElementById("especialidade").value;
   let numero="5582994239160";
   let mensagem = "Olá! Meu nome é " + nome +
+". Meu telefone é " + telefone +
 ". Gostaria de atendimento em " + especialidade +
+
 ". Preciso de ajuda com: " + assunto;
-  window.open("https://wa.me/" + numero + 
+    
+    mensagem += "\n\n🤖 Olá! Sou a assistente virtual da Clínica Saúde & Vida. Vou ajudar você com seu atendimento."; 
+      window.open("https://wa.me/" + numero + 
   "?text=" + encodeURIComponent(mensagem));
-}</script>
-
-
+  }</script>
