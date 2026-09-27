@@ -33,18 +33,33 @@ button {
 <label>Nome:</label>
 <input type="text" id="nome">
 <br><br>
+<label>Especialidade:</label>
+<select id="especialidade">
+  <option>Clínico Geral</option>
+  <option>Cardiologia</option>
+  <option>Ortopedia</option>
+  <option>Pediatria</option>
+  <option>Outros</option>
+</select>
+
+<br><br>
 <label>Como podemos ajudar?</label>
 <input type="text" id="assunto">
 
 <button onclick="abrirWhatsApp()">
   Falar no Whatsapp</button>
 
-<script> function abrirWhatsApp() {
+<script> 
+  function abrirWhatsApp() {
   let nome = document.getElementById("nome").value;
   let assunto = document.getElementById("assunto").value;
+  let especialidade = document.getElementById("especialidade").value;
   let numero="5582994239160";
-  let mensagem = "Olá, meu nome é " + nome +
-". Gostaria de atendimento. Preciso de ajuda com: " + assunto;
+  let mensagem = "Olá! Meu nome é " + nome +
+". Gostaria de atendimento em " + especialidade +
+". Preciso de ajuda com: " + assunto;
   window.open("https://wa.me/" + numero + 
   "?text=" + encodeURIComponent(mensagem));
 }</script>
+
+
